@@ -17,4 +17,4 @@ Book store application using nodejs language, express platform and sequelize ORM
 1. Every time we run the application the database will be created automatically.
 2. To fill the databse with data seeds you have to run API called createSeeds
    > > URL: localhost:3000/v1/seed/createSeeds
-3. To get any API to work on you will find it in attached postman file inside the project.
+3. To get any API to work on you will find it in attached postman file inside the project called 'bookStore.postman_collection'.
