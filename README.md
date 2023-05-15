@@ -1,2 +1,2 @@
 # book-store
-book store application using nodejs language, express platform and sequelize ORM.
+Book store application using nodejs language, express platform and sequelize ORM.
