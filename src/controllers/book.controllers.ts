@@ -22,9 +22,10 @@ export const listBooks = async (req: Request, res: Response) => {
     db.Book.findAll({
         include: {
             model: db.Store,
+            required: true,
             through: { where: { StoreId: storeId } }
         }
-    }).then((result: any) => res.status(200)
+    }, { row: true }).then((result: any) => res.status(200)
         .json(result))
         .catch((error: any) => res.status(400).json(error.message));
 };
