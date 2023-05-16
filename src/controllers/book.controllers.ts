@@ -38,3 +38,28 @@ export const listBooksByAuthor = async (req: Request, res: Response) => {
         .json(result))
         .catch((error: any) => res.status(400).json(error.message));
 };
+
+export const listCheapestBooksforEachAuthor = async (req: Request, res: Response) => {
+    // db.Book.findAll({
+    //     attributes: [
+    //         'AuthorId',
+    //         'name',
+    //         db.sequelize.fn('min', db.sequelize.col('price'))],
+    //     include: [
+    //         {
+    //             model: db.Store,
+    //             required: true
+    //         }
+    //     ],
+    //     group: ['AuthorId', 'name'],
+    //     raw: true,
+    // }, { row: true }).then((result: any) => res.status(200)
+    //     .json(result))
+    //     .catch((error: any) => res.status(400).json(error.message));
+    db.sequelize.query('SELECT AuthorId, b.name, min(price) as price FROM book_store.Books as b inner join book_store.StoreBooks as sb on b.id = sb.BookId group by AuthorId, b.name;', {
+        model: db.Book,
+        mapToModel: true // pass true here if you have any mapped fields
+    }).then((result: any) => res.status(200)
+        .json(result))
+        .catch((error: any) => res.status(400).json(error.message));
+};
