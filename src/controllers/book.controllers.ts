@@ -1,6 +1,11 @@
 import db from '../../models';
 import { Request, Response } from 'express';
 
+/**
+ * Function used to add book by authorId, name and pages
+ * @param req 
+ * @param res 
+ */
 export const createBook = async (req: Request, res: Response) => {
     try {
         const authorId: string = req.body.authorId;
@@ -17,6 +22,11 @@ export const createBook = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Function used to list all books inside specific store
+ * @param req 
+ * @param res 
+ */
 export const listBooks = async (req: Request, res: Response) => {
     const storeId: string = req.params.storeId;
     db.Book.findAll({
@@ -30,6 +40,11 @@ export const listBooks = async (req: Request, res: Response) => {
         .catch((error: any) => res.status(400).json(error.message));
 };
 
+/**
+ * Function used to list all author books by authorId
+ * @param req 
+ * @param res 
+ */
 export const listBooksByAuthor = async (req: Request, res: Response) => {
     const authorId: string = req.params.authorId;
     db.Book.findAll({
@@ -39,6 +54,11 @@ export const listBooksByAuthor = async (req: Request, res: Response) => {
         .catch((error: any) => res.status(400).json(error.message));
 };
 
+/**
+ * Function used to list the cheapest book for each author
+ * @param req 
+ * @param res 
+ */
 export const listCheapestBooksforEachAuthor = async (req: Request, res: Response) => {
     // db.Book.findAll({
     //     attributes: [

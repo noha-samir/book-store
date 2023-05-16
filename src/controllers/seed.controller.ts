@@ -30,6 +30,11 @@ const createStoreBooks = () => {
 }
 
 //FIXME: catch database error to not crash the application
+/**
+ * Function used to add some seed data in the database.
+ * @param req 
+ * @param res 
+ */
 export const createSeeds = async (req: Request, res: Response) => {
   db.sequelize.sync().then(() => {
     try {

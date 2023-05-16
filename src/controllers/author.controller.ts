@@ -2,6 +2,11 @@ import db from '../../models';
 import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 
+/**
+ * Function used to create author by name.
+ * @param req 
+ * @param res 
+ */
 export const createAuthor = async (req: Request, res: Response) => {
   try {
     const authorId = uuidv4();

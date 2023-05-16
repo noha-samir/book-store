@@ -1,6 +1,11 @@
 import db from '../../models';
 import { Request, Response } from 'express';
 
+/**
+ * Function used to create store by name and address
+ * @param req 
+ * @param res 
+ */
 export const createStore = async (req: Request, res: Response) => {
   try {
     const name: string = req.body.name;
@@ -16,6 +21,11 @@ export const createStore = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * Function used to sell book by price in specific store by BookId, StoreId and price
+ * @param req 
+ * @param res 
+ */
 export const sellBook = async (req: Request, res: Response) => {
   try {
     const BookId: number = req.body.bookId;
